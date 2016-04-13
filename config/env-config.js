@@ -1,7 +1,7 @@
 'use strict';
 
 var env = {
-  appName: 'academy-manager',
+  appName: 'personaltask',
   version: 'v1',
   port: process.env.OPENSHIFT_NODEJS_PORT || 8080,
   defaultLocale: 'en',
