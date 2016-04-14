@@ -3,7 +3,7 @@
 var env = {
   appName: 'personaltask',
   version: 'v1',
-  port: process.env.OPENSHIFT_NODEJS_PORT || 3000,
+  port: 3000,
   defaultLocale: 'en',
   defaultMessage: 'unespected-error',
   ip: process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
