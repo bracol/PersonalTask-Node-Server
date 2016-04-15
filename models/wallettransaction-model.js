@@ -16,20 +16,21 @@ var mongoose = require('mongoose'),
             type: mongoose.Schema.Types.Number,
             required: true,
             trim: true
-        }
-        ,
+        },
         category: {
             type: mongoose.Schema.Types.String,
             required: true,
             trim: true
-        }
-        ,
+        },
         wallet_id: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
             trim: true
         },
-        __v: { type: Number, select: false}
+        __v: {
+            type: Number,
+            select: false
+        }
     }),
     WalletTransaction = mongoose.model('WalletTransaction', schema);
 
@@ -50,7 +51,7 @@ module.exports.findAll = function findAll() {
 module.exports.findByWalletId = function findByWalletId(walletTransactionId) {
     return new Promise(function(resolve, reject) {
         let query = {
-            wallet: walletTransactionId
+            wallet_id: walletTransactionId
         };
 
         WalletTransaction.find(query, function(err, data) {

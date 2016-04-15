@@ -8,6 +8,6 @@ var http = require('http')
 // Criamos o servidor http com o gerenciador de rotas do nosso app
 var httpServer = http.createServer(app);
 
-httpServer.listen(env.port, env.ip, function() {
-  console.log('Servidor escutando a porta ' + env.port);
+httpServer.listen(env.port, function() {
+  debug('Servidor escutando a porta ' + env.port);
 });
