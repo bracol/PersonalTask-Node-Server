@@ -8,7 +8,7 @@ var mongoose = require('mongoose'),
             trim: true
         },
         date: {
-            type: mongoose.Schema.Types.String,
+            type: mongoose.Schema.Types.Date,
             required: true,
             trim: true
         },
