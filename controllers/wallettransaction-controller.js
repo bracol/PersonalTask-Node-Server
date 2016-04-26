@@ -23,6 +23,18 @@ ctrl.findByWalletId = function(req, res) {
         });
 };
 
+ctrl.findGroupCategory = function(req, res) {
+    WalletTransaction.findGroupCategory()
+        .then(function(categorygroup) {
+            console.log("ae");
+            res.status(200).json(categorygroup);
+        })
+        .catch(function(err) {
+            console.log(err);
+            res.status(404).send(err);
+        });
+};
+
 ctrl.save = function(req, res) {
     WalletTransaction.save(req.body)
         .then(function(walletTransaction) {

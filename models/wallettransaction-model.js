@@ -47,6 +47,22 @@ module.exports.findAll = function findAll() {
     });
 };
 
+module.exports.findGroupCategory = function findGroupCategory(){
+  return new Promise(function(resolve, reject) {
+      WalletTransaction.aggregate([ {$match: {date: {$gte: new Date("2016-04-01"), $lt: new Date("2016-05-01")}}},
+      {$group: {_id: "$category", total: {$sum: "$price"} } }],
+      function(err, data) {
+          if (err) {
+              console.log('oi');
+              reject(err);
+          } else {
+              console.log('oi2');
+              resolve(data);
+          }
+      });
+  });
+};
+
 
 module.exports.findByWalletId = function findByWalletId(walletTransactionId) {
     return new Promise(function(resolve, reject) {

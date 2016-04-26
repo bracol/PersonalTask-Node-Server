@@ -1,25 +1,26 @@
 {
-    "name": "personal-task",
-    "version": "1.0.0",
-    "description": "Wallet Manager",
-    "main": "app.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node ./bin/www"
-    },
-    "keywords": [
-        "Personal",
-        "Task",
-        "API"
-    ],
-    "author": "Wanilton Filho",
-    "license": "ISC",
-    "dependencies": {
-        "basic-auth": "^1.0.3",
-        "body-parser": "^1.15.0",
-        "cors": "^2.7.1",
-        "debug": "^2.2.0",
-        "express": "^4.13.4",
-        "mongoose": "^4.4.3"
-    }
+  "name": "personal-task",
+  "version": "1.0.0",
+  "description": "Wallet Manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --debug  ./bin/www"
+  },
+  "keywords": [
+    "Personal",
+    "Task",
+    "API"
+  ],
+  "author": "Wanilton Filho",
+  "license": "ISC",
+  "dependencies": {
+    "basic-auth": "^1.0.3",
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.3",
+    "util": "^0.10.3"
+  }
 }
