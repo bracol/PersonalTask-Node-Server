@@ -53,10 +53,8 @@ module.exports.findGroupCategory = function findGroupCategory(){
       {$group: {_id: "$category", total: {$sum: "$price"} } }],
       function(err, data) {
           if (err) {
-              console.log('oi');
               reject(err);
           } else {
-              console.log('oi2');
               resolve(data);
           }
       });
