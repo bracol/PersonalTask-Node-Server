@@ -47,9 +47,11 @@ module.exports.findAll = function findAll() {
     });
 };
 
-module.exports.findGroupCategory = function findGroupCategory(){
+module.exports.findGroupCategory = function findGroupCategory(year, month){
   return new Promise(function(resolve, reject) {
-      WalletTransaction.aggregate([ {$match: {date: {$gte: new Date("2016-04-01"), $lt: new Date("2016-05-01")}}},
+      let mMonth = month - 1;
+      let mYear = year;
+      WalletTransaction.aggregate([ {$match: {date: {$gte: new Date(mYear, mMonth), $lt: new Date(mYear, month)}}},
       {$group: {_id: "$category", total: {$sum: "$price"} } }],
       function(err, data) {
           if (err) {

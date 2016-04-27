@@ -24,7 +24,7 @@ ctrl.findByWalletId = function(req, res) {
 };
 
 ctrl.findGroupCategory = function(req, res) {
-    WalletTransaction.findGroupCategory()
+    WalletTransaction.findGroupCategory(req.params.year, req.params.month)
         .then(function(categorygroup) {
             console.log("ae");
             res.status(200).json(categorygroup);
