@@ -42,10 +42,8 @@ module.exports.findByLoginId = function findByLoginId(loginId) {
 
         Wallet.findOne(query, function(err, data) {
             if (err) {
-                console.log('findByLoginId err: ' + err);
                 reject(err);
             } else {
-                console.log('findByLoginId data: ' + data);
                 resolve(data);
             }
         });
@@ -75,10 +73,8 @@ module.exports.update = function update(wallet) {
 
         Wallet.update(query, wallet, function(err, data) {
             if (err) {
-                console.log('update err: ' + err);
                 reject(err);
             } else {
-                console.log('update data: ' + data);
                 resolve(data);
             }
         });
