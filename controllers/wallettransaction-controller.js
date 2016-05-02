@@ -24,13 +24,11 @@ ctrl.findByWalletId = function(req, res) {
 };
 
 ctrl.findGroupCategory = function(req, res) {
-    WalletTransaction.findGroupCategory(req.params.year, req.params.month)
+    WalletTransaction.findGroupCategory(req.params.wallet_id, req.params.year, req.params.month)
         .then(function(categorygroup) {
-            console.log("ae");
             res.status(200).json(categorygroup);
         })
         .catch(function(err) {
-            console.log(err);
             res.status(404).send(err);
         });
 };

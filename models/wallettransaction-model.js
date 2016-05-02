@@ -33,6 +33,7 @@ var mongoose = require('mongoose'),
         }
     }),
     WalletTransaction = mongoose.model('WalletTransaction', schema);
+var ObjectId = mongoose.Types.ObjectId;
 
 
 module.exports.findAll = function findAll() {
@@ -47,11 +48,11 @@ module.exports.findAll = function findAll() {
     });
 };
 
-module.exports.findGroupCategory = function findGroupCategory(year, month){
+module.exports.findGroupCategory = function findGroupCategory(_wallet_id, year, month){
   return new Promise(function(resolve, reject) {
       let mMonth = month - 1;
       let mYear = year;
-      WalletTransaction.aggregate([ {$match: {date: {$gte: new Date(mYear, mMonth), $lt: new Date(mYear, month)}}},
+      WalletTransaction.aggregate([ {$match: {date: {$gte: new Date(mYear, mMonth), $lt: new Date(mYear, month)}, wallet_id: new ObjectId(_wallet_id)}},
       {$group: {_id: "$category", total: {$sum: "$price"} } }],
       function(err, data) {
           if (err) {
