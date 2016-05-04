@@ -7,7 +7,7 @@ var env = {
   defaultLocale: 'en',
   defaultMessage: 'unespected-error',
   db: {
-    uri: process.env.DB_URI || 'mongodb://localhost/personaltask',
+    uri: process.env.DB_URI || 'mongodb://localhost/personalTask',
     credentials: {
       name: process.env.DB_USER || '',
       pass: process.env.DB_PASS || ''

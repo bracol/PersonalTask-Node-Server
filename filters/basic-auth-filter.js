@@ -1,7 +1,7 @@
 'use strict';
 
 var User = require ('../models/user-model')
-  , debug = require('../config/debug-config')('basic-auth-filter')
+  //, debug = require('../config/debug-config')('basic-auth-filter')
   , auth = require('basic-auth');
 
 module.exports = function(req, res, next) {
