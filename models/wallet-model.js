@@ -54,10 +54,8 @@ module.exports.save = function save(wallet) {
     return new Promise(function(resolve, reject) {
         new Wallet(wallet).save(function(err, data) {
             if (err) {
-                console.log('save err: ' + err);
                 reject(err);
             } else {
-                console.log('save data: ' + data);
                 resolve(data);
             }
         });

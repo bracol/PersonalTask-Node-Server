@@ -33,6 +33,16 @@ ctrl.findGroupCategory = function(req, res) {
         });
 };
 
+ctrl.findSumMounth = function(req, res) {
+    WalletTransaction.findSumMounth(req.params.wallet_id, req.params.year, req.params.month)
+        .then(function(categorygroup) {
+            res.status(200).json(categorygroup);
+        })
+        .catch(function(err) {
+            res.status(404).send(err);
+        });
+};
+
 ctrl.save = function(req, res) {
     WalletTransaction.save(req.body)
         .then(function(walletTransaction) {
