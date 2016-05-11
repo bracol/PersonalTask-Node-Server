@@ -44,7 +44,7 @@ ctrl.findSumMounth = function(req, res) {
 };
 
 ctrl.save = function(req, res) {
-    WalletTransaction.save(req.body)
+    WalletTransaction.save(req.body, req.params.qt)
         .then(function(walletTransaction) {
             res.status(200).json(walletTransaction);
         })

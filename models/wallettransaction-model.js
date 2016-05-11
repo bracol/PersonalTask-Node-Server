@@ -97,16 +97,29 @@ module.exports.findByWalletId = function findByWalletId(walletTransactionId) {
     });
 };
 
-module.exports.save = function save(walletTransaction) {
-    return new Promise(function(resolve, reject) {
-        new WalletTransaction(walletTransaction).save(function(err, data) {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(data);
-            }
-        });
-    });
+module.exports.save = function save(walletTransaction, qtMonth) {
+  let actualDate = new Date(),
+  nMonths = actualDate.getMonth(),
+  month = nMonths;
+  return new Promise(function(resolve, reject) {
+    for (var i = 0; i < qtMonth; i++) {
+      walletTransaction.date = new Date(actualDate.getFullYear(), month);
+      new WalletTransaction(walletTransaction).save(function(err, data) {
+          if (err) {
+              reject(err);
+          } else {
+              resolve(data);
+          }
+      });
+      month++;
+    }
+  });
+
+
+};
+
+module.exports.saveRecurrence = function save(walletTransaction, qtMonth) {
+
 };
 
 
