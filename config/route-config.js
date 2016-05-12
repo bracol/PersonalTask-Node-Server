@@ -1,6 +1,6 @@
 'use strict';
 
-var config = {}  
+var config = {}
   , path = require('path')
   , fs = require('fs')
   , env = require('./env-config')
