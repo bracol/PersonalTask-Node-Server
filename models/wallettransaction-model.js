@@ -100,10 +100,12 @@ module.exports.findByWalletId = function findByWalletId(walletTransactionId) {
 module.exports.save = function save(walletTransaction, qtMonth) {
   let actualDate = new Date(),
   nMonths = actualDate.getMonth(),
+  day = actualDate.getDate(),
   month = nMonths;
   return new Promise(function(resolve, reject) {
     for (var i = 0; i < qtMonth; i++) {
-      walletTransaction.date = new Date(actualDate.getFullYear(), month);
+      walletTransaction.date = new Date(actualDate.getFullYear(), month, day);
+      console.log(walletTransaction.date);
       new WalletTransaction(walletTransaction).save(function(err, data) {
           if (err) {
               reject(err);
@@ -143,15 +145,15 @@ module.exports.remove = function remove(walletTransactionId) {
     return new Promise(function(resolve, reject) {
         let query = {
                 _id: walletTransactionId
-            },
-            mod = {
-                active: false
             };
+            console.log(query);
 
-        WalletTransaction.update(query, mod, function(err, data) {
+        WalletTransaction.remove(query, function(err, data) {
             if (err) {
+                console.log("ERROR: " + err);
                 reject(err);
             } else {
+                console.log("DATA: " + data);
                 resolve(data);
             }
         });

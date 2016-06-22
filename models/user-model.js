@@ -48,7 +48,6 @@ module.exports.findOne = function findOne(user) {
       let _query = {
           userName: user.userName
       };
-
       User.findOne(_query, function(err, user) {
           if (err) {
               reject(err);
@@ -96,7 +95,7 @@ module.exports.findById = function findById(userId) {
 module.exports.save = function save(user) {
     return new Promise(function(resolve, reject) {
         new User(user).save(function(err, data) {
-            if (err) {                
+            if (err) {
                 reject(err);
             } else {
                 resolve(data);
